@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>카카오채널 공유</title>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+  Kakao.init("여기에_카카오_자바스크립트_키");  // Kakao Developers에서 발급받은 JS 키 입력
+
+  function shareChannel(){
+    Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "AX BOOST 채널",
+        description: "친구에게 채널을 공유하세요.",
+        imageUrl: "https://tf2keras.github.io/share-kakao/preview.jpg",
+        link: {
+          mobileWebUrl: "https://pf.kakao.com/_Khhkn",
+          webUrl: "https://pf.kakao.com/_Khhkn"
+        }
+      },
+      buttons: [
+        {
+          title: "채널 열기",
+          link: {
+            mobileWebUrl: "https://pf.kakao.com/_Khhkn",
+            webUrl: "https://pf.kakao.com/_Khhkn"
+          }
+        }
+      ]
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    shareChannel(); // 페이지 열리자마자 실행
+  });
+</script>
+
+<body>
+  <h2>카카오톡 공유하기</h2>
+  <button onclick="shareChannel()">공유하기</button>
+</body>
+</html>
